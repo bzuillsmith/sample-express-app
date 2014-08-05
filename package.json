@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bzuillsmith/the-zuillsmith-express"
+    "url": "https://github.com/bzuillsmith/zuillsmith-express-app"
   },
   "keywords": [
     "express",
@@ -20,9 +20,9 @@
   "author": "Ben Zuill-Smith",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bzuillsmith/the-zuillsmith-express/issues"
+    "url": "https://github.com/bzuillsmith/zuillsmith-express-app/issues"
   },
-  "homepage": "https://github.com/bzuillsmith/the-zuillsmith-express",
+  "homepage": "https://github.com/bzuillsmith/zuillsmith-express-app",
   "dependencies": {
     "body-parser": "^1.5.2",
     "bunyan": "^1.0.0",

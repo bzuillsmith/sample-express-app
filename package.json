@@ -1,0 +1,29 @@
+{
+  "name": "the-zuillsmith-express",
+  "version": "0.0.1",
+  "description": "Express examples for my talk at sandiego.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bzuillsmith/the-zuillsmith-express"
+  },
+  "keywords": [
+    "express",
+    "4.0",
+    "zuill",
+    "smith",
+    "sandiego.js"
+  ],
+  "author": "Ben Zuill-Smith",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bzuillsmith/the-zuillsmith-express/issues"
+  },
+  "homepage": "https://github.com/bzuillsmith/the-zuillsmith-express",
+  "dependencies": {
+    "express": "^4.7.4"
+  }
+}

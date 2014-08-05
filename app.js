@@ -1,12 +1,15 @@
 var express = require('express');
+var morgan = require('morgan');
 
 var app = express();
 
 // Always runs
-app.use(function(req, res, next) {
-	console.log(req.path);
-	next(); // required for the request to continue running down the "pipeline"
-});
+app.use(morgan('dev'));
+
+// If the path matches a file path starting from /public, then it will
+// be served by this middleware, and the request will stop traveling the pipeline.
+// Try localhost:3000/about.html  then try localhost:3000/about
+app.use(express.static(__dirname + '/public'));
 
 // Only runs for http://localhost:3000/
 app.get('/', function(req, res) {

@@ -1,0 +1,25 @@
+<html>
+<head>
+	<% include partials/head %>
+</head>
+<body>
+
+<div class="container">
+	<h1><% locals.statusCode %> Error</h1>
+
+	<!-- If a stack is given, display it. Otherwise display just the message -->
+	<% if(error.stack) { %>
+	<pre><%= error.stack %></pre>
+	<% } else { %>
+	<pre><%= error.message %></pre>
+	<% } %>
+
+	<!-- Validation errors have an array of errors to list invalid fields and why they are invalid -->
+	<% if(error.errors) { %>
+	<p>More...</p>
+	<pre><%= error.errors %></pre>
+	<% } %>
+</div>
+
+</body>
+</html>

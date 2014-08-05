@@ -4,13 +4,13 @@ module.exports = function (grunt) {
 		express: {
 			dev: {
 				options: {
-					script: 'app.js'
+					script: 'server/start.js'
 				}
 			}
 		},
 		watch: {
 			'express': {
-				files: ['app.js'],
+				files: ['server/**'],
 				tasks: ['express'],
 				options: {
 					spawn: false // The express task already spawns a new process

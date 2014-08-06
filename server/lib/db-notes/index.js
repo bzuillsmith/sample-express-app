@@ -114,7 +114,7 @@ NoteService.prototype.remove = function(id, done) {
 
 	self.collection.findOne({ _id: id }, function(err, note) {
 		if(err) return done(err);
-		if(!note) return done(new Error('Note not found. Cannot remove note.'));
+		if(!note) return done(null, 0);
 
 		log.info('Deleting note `' + id + '` from notes collection:');
 		log.info(util.inspect(note, {depth: null}));

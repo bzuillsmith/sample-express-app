@@ -75,7 +75,8 @@ module.exports = function(router, db) {
 	});
 
 	/**
-	 * Updates a note
+	 * Updates a note.
+	 * TODO: Not yet used and tested
 	 */
 	router.put('/api/notes/:id', function(req, res, next) {
 		var id;

@@ -27,7 +27,8 @@
 	<script>
 		$(function() {
 			$('.delete-note-btn').on('click', function (evt) {
-				var noteId = $(evt.target).data('id');
+				var $target = $(evt.target);
+				var noteId = $target.data('id');
 				console.log(noteId);
 				$.ajax({
 					url: '/api/notes/' + noteId,
@@ -36,6 +37,8 @@
 				})
 						.done(function (data) {
 							console.log('success!');
+							var note = $target.closest('.note');
+							note.remove();
 						})
 						.fail(function (data) {
 							console.error(data);
@@ -52,7 +55,7 @@
 <div class="container">
 	<h1>Notes</h1>
 	<form class="form" action="/api/notes" method="post">
-		<input class="form-control" name="name" type="text" placeholder="Name">
+		<input class="form-control" name="name" type="text" placeholder="Name" autofocus>
 		<input class="form-control" name="note" type="text" placeholder="Note">
 		<input class="btn btn-primary" type="submit">
 	</form>

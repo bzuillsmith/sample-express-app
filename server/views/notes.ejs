@@ -24,6 +24,26 @@
 			color: rgba(0,0,0,0.4);
 		}
 	</style>
+	<script>
+		$(function() {
+			$('.delete-note-btn').on('click', function (evt) {
+				var noteId = $(evt.target).data('id');
+				console.log(noteId);
+				$.ajax({
+					url: '/api/notes/' + noteId,
+					method: 'DELETE',
+					dataType: 'json'
+				})
+						.done(function (data) {
+							console.log('success!');
+						})
+						.fail(function (data) {
+							console.error(data);
+							console.error('fail!');
+						})
+			});
+		});
+	</script>
 </head>
 <body>
 
@@ -45,7 +65,7 @@
 		<div class="note">
 			<div class="note-heading"><%= note.createdBy %> | <%= note.lastModified.toLocaleDateString() %></div>
 			<p><%= note.note %></p>
-			<button data-id="<%= note._id %>" class="btn btn-sm btn-danger">Delete</button>
+			<button data-id="<%= note._id %>" class="delete-note-btn btn btn-sm btn-danger">Delete</button>
 		</div>
 	<% } %>
 </div>

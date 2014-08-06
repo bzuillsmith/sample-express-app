@@ -1,6 +1,7 @@
 var ObjectID = require('mongodb').ObjectID;
 var ZSchema = require('z-schema');
 var util = require('util');
+var log = require('../logger');
 var ValidationError = require('../errors').ValidationError;
 
 module.exports = NoteService;

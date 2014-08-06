@@ -67,6 +67,9 @@ module.exports = function(router, db) {
 				return res.send(400, { error: { message: 'Note does not exist' }});
 			}
 
+			// Doesn't belong in the api really, but for quickly getting this working:
+			if(req.accepts(['html', 'json']) === 'html') return res.redirect('/notes');
+
 			res.send(200, result);
 		});
 	});
@@ -97,7 +100,7 @@ module.exports = function(router, db) {
 	 * Deletes a note from the db
 	 */
 	router.delete('/api/notes/:id', function(req, res, next) {
-		noteService.removeNote(req.params.id, function(err, result) {
+		noteService.remove(req.params.id, function(err, result) {
 			if(err) return next(err);
 
 			if(result === 0) {

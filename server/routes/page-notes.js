@@ -9,7 +9,7 @@ module.exports = function(router, db) {
 		noteService.list({}, function(err, notes) {
 			if(err) return next(err);
 
-			res.locals.title = "Home";
+			res.locals.title = "Notes";
 			res.locals.notes = notes;
 			res.render('notes');
 		});

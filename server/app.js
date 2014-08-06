@@ -42,6 +42,9 @@ module.exports = function(db) {
 		secret: 'HuV7LCNDXKhYAwv00LACWxvKRHrk7hWKEZNaiUuH'
 	}));
 
+	// TODO: MongoStore for persistent sessions
+	// TODO: Passport for authentication
+
 	// If the path matches a file path starting from (but excluding) /frontend/static, then it will
 	// be served by this middleware, and the request will stop traveling the pipeline.
 	// Try localhost:3000/about.html

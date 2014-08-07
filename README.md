@@ -1,11 +1,12 @@
-Express 4 Examples
-==================
+Express 4 Sample App
+====================
 
-Clone the repo at https://github.com/bzuillsmith/zuillsmith-express
+Clone the repo at https://github.com/bzuillsmith/sample-express-app
 
 Do This Once
 ============
-Be certain you have installed grunt-cli globally (you only need to do this once)
+Be certain you have installed grunt-cli globally (you only need to do this once). This is a build-script program
+that will help run the sample application.
 
 ```npm install -g grunt-cli```
 
@@ -14,7 +15,7 @@ and install mongodb. Run it in a separate terminal window with
 
 ```mongod```
 
-You can leave it running while you play with various steps.
+You can just leave it running while you play with various steps.
 
 Do This Each Step
 =================

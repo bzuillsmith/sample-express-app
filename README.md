@@ -29,7 +29,7 @@ to npm install.
 
 ```npm install```
 
-Run the app with grunt
+For step-0, use ```node app``` to run it. For all other steps, run the app with grunt
 
 ```grunt ```
 

@@ -13,7 +13,7 @@ that will help run the sample application.
 Also, for steps 2 and on, you will need to have a running instance of mongodb. Download 
 and install mongodb. Run it in a separate terminal window with
 
-```mongod```
+```mongod ```
 
 You can just leave it running while you play with various steps.
 

@@ -1,7 +1,7 @@
 Express 4 Sample App
 ====================
 
-Clone the repo at https://github.com/bzuillsmith/sample-express-app
+Feel free to peruse, use, modify, create issues, etc. The following sections are instructions on how to use the project. I'll be making updates to it as I have time and learn more so come back later for more!
 
 Do This Once
 ============

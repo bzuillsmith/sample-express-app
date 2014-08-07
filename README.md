@@ -31,7 +31,7 @@ to npm install.
 
 Run the app with grunt
 
-```grunt```
+```grunt ```
 
 Steps
 =====

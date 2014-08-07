@@ -19,7 +19,7 @@ You can just leave it running while you play with various steps.
 
 Do This Each Step
 =================
-Each major step is tagged as below. An example of checking out step-0, the Hello World example is:
+Each major step is tagged as below. You can also list the tags by typing ```git tag```. An example of checking out step-0, the Hello World example is:
 
 ```git checkout step-0```
 

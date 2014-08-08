@@ -1,5 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
-var log = require('./lib/logger');
+var log = require('./lib/logger').app;
 var settings = require('./lib/settings');
 var http = require('http');
 
@@ -12,11 +12,16 @@ function start() {
 
 	MongoClient.connect(settings.MONGO_CONNECTION_STRING, function (err, database) {
 		if (err) {
-			log.error('Error while initializing mongodb:\n' + err.stack);
+			log.error(err, 'Couldn\'t connect to MongoDB. Did you start it?\n' +
+				'Try running `mongod` in another terminal window.');
 			log.error('Killing server process');
-			process.exit(1);
+			// Give time for output
+			setTimeout(function() {
+				process.exit(1);
+			}, 300);
+
 		} else {
-			log.info('Connected to database at: ', settings.MONGO_CONNECTION_STRING);
+			log.info('Connected to database at: %s', settings.MONGO_CONNECTION_STRING);
 			startExpress(database);
 
 		}

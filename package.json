@@ -1,9 +1,11 @@
 {
   "name": "sample-express-app",
   "version": "0.0.1",
-  "description": "Express examples for my talk at sandiego.js",
+  "description": "A full Express app example",
   "main": "app.js",
   "scripts": {
+    "prestart": "npm install",
+    "start": "grunt",
     "test": "mocha"
   },
   "repository": {
@@ -31,15 +33,16 @@
     "ejs": "^1.0.0",
     "express": "^4.7.4",
     "express-session": "^1.7.2",
+    "finished": "^1.2.2",
     "joi": "^4.6.2",
     "lodash": "^2.4.1",
     "method-override": "^2.1.2",
     "mongodb": "^1.4.8",
-    "morgan": "^1.2.2",
     "serve-favicon": "^2.0.1",
     "z-schema": "^2.4.9"
   },
   "devDependencies": {
+    "bunyan-prettystream": "^0.1.3",
     "grunt": "^0.4.5",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-express-server": "^0.4.17"

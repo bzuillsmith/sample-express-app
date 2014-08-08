@@ -1,16 +1,17 @@
 var express = require('express');
 var path = require('path');
-var log = require('./lib/logger');
+var logger = require('./lib/logger');
 var settings = require('./lib/settings');
 
 // Middleware
 var favicon = require('serve-favicon');
-var morgan = require('morgan');
 var compression = require('compression');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+
+var log = logger.express;
 
 module.exports = function(db) {
 
@@ -23,8 +24,8 @@ module.exports = function(db) {
 
 	// Serves the icon you see in the tab of your browser
 	app.use(favicon(path.resolve(__dirname + '/../frontend/static/images/favicon.ico')));
-	// Logs any request that is not a favicon request
-	app.use(morgan('dev'));
+	// Logs any request that is not a favicon request (because favicon comes before it)
+	app.use(logger.requestLogger(settings.env));
 	// Compresses responses so they are smaller
 	app.use(compression());
 	// Enables reading JSON-formatted data from a request
@@ -69,17 +70,18 @@ module.exports = function(db) {
 	// Always expects an Error object with `stack` and `message` properties.
 	// Optionally, the error may have a `status` property that will set the status of the response.
 	app.use(function (err, req, res, next) {
+		// If a status was set on the error, use that status code
 		if (err.status) res.statusCode = err.status;
-		if (res.statusCode === 200) res.statusCode = 500;
 
+		// If this isn't a typical Error object (it should be) then give a generic error message
 		if (!err.stack || !err.message) {
-			log.error('Invalid error object passed to error handler:', err);
+			log.error({ err: err }, 'Invalid error object passed to error handler:');
 			err = { message: 'Oops, we had an unexpected error. Looks like we messed up.'};
 			res.statusCode = 500;
 		} else {
-			log.error(err.stack);
+			log.error({ err: err });
 
-			// This shouldn't happen, but just in case
+			// Make sure we didn't somehow set a non-error status code
 			if (res.statusCode < 400) {
 				log.error('Odd statusCode `' + res.statusCode +
 					'` reached error handler for path `' + req.originalUrl + '`.');
@@ -87,7 +89,7 @@ module.exports = function(db) {
 			}
 		}
 
-		// If in production, strip everything but the message
+		// If in production, strip everything but the message so we don't reveal too much to the user
 		if ('production' === settings.env) err = { message: err.message };
 
 		// If the request prefers json, then send a json response.

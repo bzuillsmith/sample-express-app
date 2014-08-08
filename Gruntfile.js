@@ -4,13 +4,14 @@ module.exports = function (grunt) {
 		express: {
 			dev: {
 				options: {
-					script: 'server/start.js'
+					script: 'server/start.js',
+					output: 'App server listening on port'
 				}
 			}
 		},
 		watch: {
 			'express': {
-				files: ['server/**'],
+				files: ['Gruntfile.js', 'server/**'],
 				tasks: ['express'],
 				options: {
 					spawn: false // The express task already spawns a new process

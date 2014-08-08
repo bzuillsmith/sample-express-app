@@ -1,7 +1,7 @@
 Express 4 Sample App
 ====================
 
-Clone the repo at https://github.com/bzuillsmith/sample-express-app
+Feel free to peruse, use, modify, create issues, etc. The following sections are instructions on how to use the project. I'll be making updates to it as I have time and learn more so come back later for more!
 
 Do This Once
 ============
@@ -13,13 +13,13 @@ that will help run the sample application.
 Also, for steps 2 and on, you will need to have a running instance of mongodb. Download 
 and install mongodb. Run it in a separate terminal window with
 
-```mongod```
+```mongod ```
 
 You can just leave it running while you play with various steps.
 
 Do This Each Step
 =================
-Each major step is tagged as below. An example of checking out step-0, the Hello World example is:
+Each major step is tagged as below. You can also list the tags by typing ```git tag```. An example of checking out step-0, the Hello World example is:
 
 ```git checkout step-0```
 
@@ -29,9 +29,9 @@ to npm install.
 
 ```npm install```
 
-Run the app with grunt
+For step-0, use ```node app``` to run it. For all other steps, run the app with grunt
 
-```grunt```
+```grunt ```
 
 Steps
 =====
